@@ -10,7 +10,7 @@ export function setLocalStorage(key:string, value:any):void {
 /*
  * 获取getLocalStorage
  * */
-export function getLocalStorage(key:string):object {
+export function getLocalStorage(key:string):any {
   return window.JSON.parse(window.localStorage.getItem(key) || "[]");
 }
 /*
@@ -22,7 +22,7 @@ export function setSessionStorage(key:string, value:any):void {
 /*
  * 获取getSessionStorage
  * */
-export function getSessionStorage(key:string):object {
+export function getSessionStorage(key:string):any {
   return window.JSON.parse(window.sessionStorage.getItem(key) || "[]");
 }
 /*

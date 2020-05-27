@@ -1,5 +1,4 @@
-import axios from "axios";
-import {AxiosResponse,AxiosRequestConfig } from 'axios'
+import axios, {AxiosResponse,AxiosRequestConfig } from "axios";
 import config from "./config";
 import { getToken, setToken } from "./auth";
 

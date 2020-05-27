@@ -1,21 +1,16 @@
 <template>
-  <div class="">
-    <h1 class="title">{{msg | interceptCharacterLen}}</h1>
-    <button @click="handlerClick">{{ computedMsg }}</button>
-    <Item :title="num" msg="改变默认值" @on-btn="onBtn" @change="change" />
-    <van-button type="default">默认按钮</van-button>
-    <van-button type="primary">主要按钮</van-button>
-    <van-button type="info">信息按钮</van-button>
-    <van-button type="warning">警告按钮</van-button>
-    <van-button type="danger">危险按钮</van-button>
+  <div class='login'>
+    <h1 class="title">{{this.$store.state.common.count}}</h1>
+    <van-field v-model="phoneNum" label="手机号" placeholder="请输入手机号" />
+    <van-field v-model="password" label="密码" placeholder="请输入密码" />
+    <van-field v-model="code" label="验证码" placeholder="请输入验证码" />
+    <van-button @click="handleLogin" type="danger">登录</van-button>
   </div>
 </template>
 
-<script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
-import {interceptCharacterLen} from '../../utils/filters'
-import Item from "./item.vue";
-import {getToken} from '../../utils/auth'
+<script lang='ts'>
+import { Component, Vue } from 'vue-property-decorator';
+import Item from './item'
 @Component({
   components: {
     Item
@@ -23,41 +18,23 @@ import {getToken} from '../../utils/auth'
 })
 export default class HelloWorld extends Vue {
   // initial data
-  msg = "孙菲菲就开始叫对方世纪东方快结束了开发";
-  num = 10;
-
-  //lifecycle hook
-  created() {
-    console.log("生命周期----created");
-    console.log('token:',getToken())
-  }
-  mounted() {
-    console.log("生命周期----mounted");
-  }
-
-  get computedMsg() {
-    console.log("生命周期----computedMsg");
-    return "computed--" + this.msg;
-  }
-
-  //method
-  handlerClick() {
-    console.log(this.msg);
-  }
-  onBtn(e:object) {
-    console.log('子传父',e)
-    this.num = 90
-  }
-  change(e:any) {
-    console.log('子传父2',e)
+  private phoneNum = '123';
+  private password = '';
+  private code = '';
+  // lifecycle hook
+  private created():void {}
+  private mounted():void {}
+  private destroyed():void {}
+  // methods
+  private handleLogin():void {
+    this.phoneNum = 'a'
+    console.log('登录',this.phoneNum,this.password,this.code)
   }
 }
 </script>
 
-<style scoped lang="scss">
+<style scoped lang='scss'>
 .title {
-  font-size: 20px;
-  display: flex;
-  flex: 1;
+  font-size: 16px;
 }
 </style>
